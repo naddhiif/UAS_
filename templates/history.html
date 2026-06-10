@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Encryption</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80');
+            background-size:cover;
+            background-position:center;
+            background-repeat:no-repeat;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:30px;
+            position:relative;
+        }
+
+        body::before{
+            content:'';
+            position:absolute;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            background:rgba(0,0,0,0.25);
+        }
+
+        .container{
+            position:relative;
+            z-index:2;
+
+            width:95%;
+            max-width:1200px;
+
+            background:rgba(255,255,255,0.12);
+            backdrop-filter:blur(20px);
+            -webkit-backdrop-filter:blur(20px);
+
+            border-radius:25px;
+            padding:40px;
+
+            border:1px solid rgba(255,255,255,0.2);
+            box-shadow:0 15px 35px rgba(0,0,0,0.4);
+        }
+
+        h1{
+            color:white;
+            text-align:center;
+            margin-bottom:30px;
+            font-weight:600;
+        }
+
+        .table-container{
+            overflow-x:auto;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+
+        th{
+            background:rgba(255,255,255,0.15);
+            color:white;
+            padding:15px;
+            text-align:center;
+        }
+
+        td{
+            background:rgba(0,0,0,0.15);
+            color:#ffd166;
+            padding:15px;
+            text-align:center;
+            word-break:break-word;
+        }
+
+        tr:hover td{
+            background:rgba(255,255,255,0.08);
+        }
+
+        .btn{
+            display:block;
+            margin-top:30px;
+            text-align:center;
+            text-decoration:none;
+            color:white;
+            border:2px solid white;
+            padding:15px;
+            border-radius:50px;
+            transition:0.3s;
+        }
+
+        .btn:hover{
+            background:white;
+            color:#14213d;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Encryption History</h1>
+
+    <div class="table-container">
+
+        <table>
+
+            <tr>
+                <th>ID</th>
+                <th>Pengirim</th>
+                <th>Penerima</th>
+                <th>Pesan</th>
+                <th>Waktu</th>
+            </tr>
+
+            {% for row in data %}
+
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[7] }}</td>
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+    <a href="/" class="btn">
+        Kembali ke Beranda
+    </a>
+
+</div>
+
+</body>
+</html>
